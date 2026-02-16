@@ -1,0 +1,62 @@
+body{
+
+ background-image: url(download\ \(2\).jpg);
+
+ background-repeat: no-repeat;
+
+ background-attachment: fixed;
+
+ background-size: cover;
+
+ background-position: center;
+
+ text-align: center;
+}
+
+
+#upper{
+    display: flex;
+    align-items: center;
+    gap: 1100px;
+
+    
+
+}
+#calendar{
+
+    margin-left: 20px;
+}
+
+#user{
+
+    margin-left:-1100px;
+}
+
+#center{
+
+    text-align: center;
+}
+
+#box{
+
+    display: flex;
+    align-items: center;
+    gap: 800px;
+
+}
+
+#payment{
+
+    border-style: solid;
+    margin-left: 200px;
+    background-color: #FFFFFF;
+
+}
+
+#prescription{
+
+    border-style: solid;
+    background-color: #FFFFFF;
+}
+
+

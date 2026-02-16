@@ -1,0 +1,38 @@
+body{
+
+ background-image: url(cuoreDoc.jpg);
+
+ background-repeat: no-repeat;
+
+ background-attachment: fixed;
+
+ background-size: cover;
+
+ background-position: center;
+
+ text-align: center;
+
+}
+
+#visit{
+
+     background-color: #F0F0F0;
+    border-radius: 25px;
+    border: 2px solid black;
+    margin-left: 35%;
+    margin-right: 35%;
+    
+
+}
+
+#specific{
+
+     background-color: #F0F0F0;
+    border-radius: 25px;
+    border: 2px solid black;
+    margin-left: 35%;
+    margin-right: 35%;
+    
+
+
+}
