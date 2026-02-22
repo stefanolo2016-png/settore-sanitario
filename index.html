@@ -1,3 +1,19 @@
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sanitario"; // Cambia questo con il nome vero del tuo DB
+
+// Creazione connessione
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Controllo connessione
+if (!$conn) {
+    die("Connessione fallita: " . mysqli_connect_error());
+}
+echo "Connessione riuscita con successo!";
+?>
 <html>
 
 <head>
@@ -15,7 +31,7 @@
 
     <div id="calendar"><a href="calendar.html"> <h2>CALENDAR</h2>  </a></div>
     <div id="reservation"><a href="reservation.html"> <h2>RESERVATION [+]</h2> </a></div>
-    <div id="user"><a href="user.html"> <img src="user.png"  width="30"></a></div>
+    <div id="user"><a href="user.php"> <img src="user.png"  width="30"></a></div>
 
     </div>
 
@@ -40,9 +56,9 @@
 
 
 
-    </div>
+    
 
-    <div id="prescription">
+     <div id="prescription">
 
         <div style="border-style: solid;">
         <a   href="prescription.html">  <h2>PRESCRIPTION</h2> </a>
@@ -58,7 +74,7 @@
 
     </div>
 
-    </div>
+  
 
 
 </body>
