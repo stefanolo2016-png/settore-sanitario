@@ -37,26 +37,23 @@ body{
     text-align: center;
 }
 
-#box{
-
-    display: flex;
-    align-items: center;
-    gap: 800px;
-
+#box {
+    display: flex !important;
+    flex-direction: row !important; /* Forza la riga */
+    flex-wrap: nowrap !important;   /* Impedisce di andare a capo */
+    justify-content: center !important; 
+    align-items: flex-end !important;    /* Li spinge in basso */
+    height: 80vh !important;            /* Crea lo spazio verticale */
+    gap: 30px !important;               /* Spazio tra i due */
+    padding-bottom: 20px;
 }
 
-#payment{
-
-    border-style: solid;
-    margin-left: 200px;
-    background-color: #FFFFFF;
-
+#payment, #prescription {
+    width: 400px !important;  /* Larghezza fissa */
+    height: 300px !important; /* Altezza fissa */
+    background-color: white !important;
+    border: 2px solid black;
+    padding: 15px;
+    box-sizing: border-box; /* Importante per non farli allargare troppo */
 }
-
-#prescription{
-
-    border-style: solid;
-    background-color: #FFFFFF;
-}
-
 
