@@ -1,9 +1,69 @@
+<?php
+session_start();
+
+// Connessione al database
+$servername = "localhost";
+$username = "root";
+$password_db = ""; 
+$dbname = "sanitario";
+
+
+try {
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password_db);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Connessione fallita: " . $e->getMessage());
+}
+
+$ruolo = isset($_SESSION['character']) ? $_SESSION['character'] : 0;
+
+// PARTE A: Inserimento (Solo se l'Admin invia il form)
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $ruolo == 1) {
+    $id_alfanumerico = bin2hex(random_bytes(25)); 
+    $title = $_POST['title'];
+    $date  = $_POST['date'];
+    $value = $_POST['value'] . " " . $_POST['coin'];
+    $type  = $_POST['type'];
+    $ce_client = $_POST['ce_client'];
+    $doc_name = $_SESSION['name'] . " " . $_SESSION['surname'];
+
+    $sql = "INSERT INTO payment (id, title, date, value, type, ce_client, doc_name) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
+    
+    try {
+        $stmt->execute([$id_alfanumerico, $title, $date, $value, $type, $ce_client, $doc_name]);
+        echo "<script>alert('Registrato con successo!');</script>";
+    } catch (PDOException $e) {
+        echo "Errore: " . $e->getMessage();
+    }
+}
+
+// PARTE B: Recupero dati (Decidiamo cosa far vedere)
+if ($ruolo == 1) {
+    // Admin vede tutto
+    $sql_cronologia = "SELECT * FROM payment ORDER BY date DESC LIMIT 3";
+    $stmt = $pdo->query($sql_cronologia);
+} else {
+    // Cliente vede solo i suoi
+    $sql_cronologia = "SELECT * FROM payment WHERE ce_client = ? ORDER BY date DESC LIMIT 3";
+    $stmt = $pdo->prepare($sql_cronologia);
+    $stmt->execute([$_SESSION['ce']]);
+}
+$pagamenti = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
+
+
+
+
 
 <html>
 
 <head>
 
     <title>payment</title>
+    <link rel="stylesheet" href="payment.css">
 
 
 
@@ -11,11 +71,157 @@
 
 <body>
 
-    <h1>PAYMENT</h1>
+    
+
+    <a href="index.php">Home</a>
+
+    <?php if ($ruolo == 1): ?>
+
+    <div id="admin">
+
+        <h3 id="new_pay">CREATE PAYMENT <img src="plus.png" width="50" height="50"></h3>
 
 
 
+    </div>
 
+    <div id="intermezzo">
+
+        <div id="link_pay" class="nascosto">
+
+        <form action="payment.php" method="POST">
+
+            <label>Client:</label>
+            <input type="text" id="client" name="ce_client"></input><br>
+            <label>Title:</label>
+            <input type="text" id="title" name="title" required><br>
+            <label>date:</label>
+            <input type="datetime-local" id="date" name="date" required><br>
+            <label>value:</label>
+            <input type="text" id="value" name="value" required>
+            <select id="coin" name="coin">
+                <option value="€">€</option>
+                <option value="$">$</option>
+                <option value="£">£</option>
+                <option value="CHF">CHF</option>
+                <option value="zł (PLN)">zł (PLN)</option>
+                <option value="Corona Ceca">$</option>
+                <option value="Ft (HUF)">Ft (HUF)</option>
+                <option value="lei (RON)">lei (RON)</option>
+                <option value="kr (SEK)">kr (SEK)</option>
+                <option value="zł (PLN)">zł (PLN)</option>
+                <option value="kr (NOK)">kr (NOK)</option>
+                <option value="kr (DKK)">kr (DKK)</option>
+                <option value="kr (ISK)">kr (ISK)</option>
+                <option value="₺ (TRY)">₺ (TRY)</option>
+                <option value="zł (PLN)">₴ (UAH)</option>
+                <option value="A$">A$</option>
+                <option value="¥">¥</option>
+                <option value="C$">C$</option>
+
+                
+            </select><br>
+
+            <label>description:</label>
+            <input type="text" id="type" name="type"><br><br>
+
+            <button id="go" type="submit">go</button><br>
+            <a id="indietro" href="#">indietro</a>
+
+        </form>
+
+
+
+    </div>
+
+    <div id="cronologia">
+    <h4>historical record Doc</h4><br>
+
+    <label>Cerca:</label>
+    <input type="text" id="cerca" name="cerca">
+    <select>
+        <option>titolo</option>
+        <option>data</option>
+        <option>value</option>
+        <option>doctor</option>
+    </select>
+
+    <ul>
+        <?php if (count($pagamenti) > 0): ?>
+            <?php foreach ($pagamenti as $p): ?>
+                <li style="margin-bottom: 20px; padding-left: 10px;">
+                    <div style="display: flex; flex-direction: column; gap: 10px; width: fit-content;">
+                        <div style="display: flex; gap: 40px; align-items: flex-start;">
+                            <div style="display: flex; flex-direction: column;">
+                                <h5 style="margin: 0; font-size: 1.1rem;"><?php echo htmlspecialchars($p['title']); ?></h5>
+                                <p style="margin: 0; color: gray; font-size: 0.85rem;"><?php echo htmlspecialchars($p['ce_client']); ?></p>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column;">
+                                <span style="font-weight: bold; font-size: 1.1rem;"><?php echo htmlspecialchars($p['value']); ?></span>
+                                <span style="font-size: 0.85rem; color: #555;"><?php echo date("d/m/Y H:i", strtotime($p['date'])); ?></span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 8px;">
+                            <button>desc</button>
+                            <button>edit</button>
+                            <button>delete</button>
+                        </div>
+                    </div>
+                </li>
+                <hr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <li>Nessun pagamento trovato.</li>
+        <?php endif; ?>
+    </ul>
+</div>
+    </div>
+
+    <?php else: ?> <!--PROGRAMMA PER IL PAZIENTE-->
+ 
+        <H1>PAYMENT</H1>
+<div id="intermezzoClient">
+        <div id="client">
+            <div id="cronologia">
+                <h4>historical record Patient</h4><br>
+                <label>Cerca:</label>
+                <input type="text" id="cerca" name="cerca">
+                
+                <ul>
+                    <?php if (count($pagamenti) > 0): ?>
+                        <?php foreach ($pagamenti as $p): ?>
+                            <li style="margin-bottom: 20px; padding-left: 10px;">
+                                <div style="display: flex; flex-direction: column; gap: 10px; width: fit-content;">
+                                    <div style="display: flex; gap: 40px; align-items: flex-start;">
+                                        <div style="display: flex; flex-direction: column;">
+                                            <h5 style="margin: 0; font-size: 1.1rem;"><?php echo htmlspecialchars($p['title']); ?></h5>
+                                            <p style="margin: 0; color: gray; font-size: 0.85rem;">Doc: <?php echo htmlspecialchars($p['doc_name']); ?></p>
+                                        </div>
+
+                                        <div style="display: flex; flex-direction: column;">
+                                            <span style="font-weight: bold; font-size: 1.1rem;"><?php echo htmlspecialchars($p['value']); ?></span>
+                                            <span style="font-size: 0.85rem; color: #555;"><?php echo date("d/m/Y H:i", strtotime($p['date'])); ?></span>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; gap: 8px;">       
+                                        <button>pay</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <hr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li>Nessun pagamento trovato per il tuo Codice Fiscale.</li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+    <script src="payment.js"></script>
 
 </body>
 
