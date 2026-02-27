@@ -1,9 +1,77 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password_db = ""; 
+$dbname = "sanitario";
+
+try {
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password_db);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Connessione fallita: " . $e->getMessage());
+}
+
+$ruolo = $_SESSION['character'];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $ruolo == 1) {
+    $ce = $_POST['ce'];
+    $priority = $_POST['priority'];
+    $cod_exception = $_POST['cod_exception'];
+    $emission_date = $_POST['emission_date'];
+    $medical_info = $_POST['medical_info'];
+    $description = $_POST['description'];
+
+    // Nome tabella corretto: medical_prescription
+    $sql = "INSERT INTO medical_prescription (priority, cod_exception, ce, emission_date, medical_info, description) 
+            VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
+    
+    try {
+        $stmt->execute([$priority, $cod_exception, $ce, $emission_date, $medical_info, $description]);
+        echo "<script>alert('Prescrizione registrata con successo!');</script>";
+    } catch (PDOException $e) {
+        echo "Errore: " . $e->getMessage();
+    }
+}
+
+// --- RECUPERO ANTEPRIME PRESCRIZIONI ---
+if ($ruolo == 1) {
+    // Il dottore vede le ultime 3 in assoluto
+    $sql_presc = "SELECT medical_info, emission_date, cod_prescription FROM medical_prescription ORDER BY emission_date DESC LIMIT 3";
+    $stmt_presc = $pdo->query($sql_presc);
+} else {
+    // Il paziente vede solo le sue ultime 3
+    $sql_presc = "SELECT medical_info, emission_date, cod_prescription FROM medical_prescription WHERE ce = ? ORDER BY emission_date DESC LIMIT 3";
+    $stmt_presc = $pdo->prepare($sql_presc);
+    $stmt_presc->execute([$mio_ce]);
+}
+$anteprime_presc = $stmt_presc->fetchAll(PDO::FETCH_ASSOC);
+
+// Prepariamo l'HTML per il secondo box
+$lista_presc_html = "";
+
+foreach ($anteprime_presc as $p) {
+    $info = htmlspecialchars($p['medical_info']);
+    $data = date("d/m", strtotime($p['emission_date']));
+    $cod  = htmlspecialchars($p['cod_prescription']);
+
+    $lista_presc_html .= "<li style='list-style:none; margin-bottom:12px; border-bottom: 2px solid #888; padding-bottom: 8px;'>
+                            <strong>$info</strong> <small style='color:gray; font-size:0.7rem;'>($data)</small><br>
+                            <span style='font-size:0.8rem; color:#555;'>Cod: $cod</span>
+                          </li>";
+}
+
+?>
+
 
 <html>
 
 <head>
 
-    <title>sistema sanitario</title>
+    <title>prescription</title>
+    <link rel="stylesheet" href="prescription.css">
 
 
 
@@ -11,9 +79,107 @@
 
 <body>
 
-    <h1>PRESCRIPTION</h1>
+ <body>
+    <a href="index.php">Home</a>
+    <?php if ($ruolo == 1): ?>
+    <div id="admin">
+
+        <h3 id="new_pay">PRESCRIPTION </h3>
 
 
+
+    </div>
+
+<div id="intermezzo">
+    <div id="link_pay">
+
+        <form action="prescription.php" method="POST">
+
+            <label>CE:</label>
+            <input type="text" id="ce" name="ce" required><br>            
+            <label>DATE EMISSION:</label>
+             <input type="datetime-local" id="date" name="emission_date" required><br>
+            <label>MEDICAL INFORMATION:</label>
+            <input type="text" id="medical" name="medical_info" required><br>          
+            <label>DESCRIPTION:</label>
+            <input type="text" id="description" name="description" required><br>
+            <label>PRIORITY:</label>
+            <input type="text" id="priority" name="priority" required><br>
+            <label>COD EXCEPTION</label>
+            <input type="text" id="cod_exception" name="cod_exception" required><br>
+
+            <button type="submit">go</button><br>
+
+        </form>
+
+
+
+    </div>
+</div>
+    <hr>
+    <div id="cronologia">
+
+        <h4>historical record</h4><br>
+
+        <label>Cerca:</label>
+        <input type="text" id="cerca" name="cerca">
+        <select>
+            <option>Medical information</option>
+            <option>data</option>
+            <option>COD PRESCRIPTION</option>
+            
+        </select>
+
+        <ul>
+        <?php 
+                if ($lista_presc_html !== "") {
+                    echo $lista_presc_html; 
+                } else {
+                    echo "<li>Nessuna prescrizione record</li>";
+                }
+            ?>
+        </ul>
+
+    </div>
+<?php else: ?>
+    
+    <div id="client">
+
+     <div id="cronologia">
+
+        <h4>historical record</h4><br>
+
+        <label>Cerca:</label>
+        <input type="text" id="cerca" name="cerca">
+        <select>
+            <option>titolo</option>
+            <option>data</option>
+            <option>value</option>
+            <option>doctor</option>
+        </select>
+
+        <ul>
+            <?php 
+                if ($lista_presc_html !== "") {
+                    echo $lista_presc_html; 
+                } else {
+                    echo "<li>Nessuna prescrizione record</li>";
+                }
+            ?>
+        </ul>
+        </ul>
+
+    </div>
+
+
+
+    </div>
+
+    
+
+<?php endif; ?>
+
+</body>
 
 
 
