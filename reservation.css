@@ -25,6 +25,18 @@ body{
 
 }
 
+#specific_title{
+
+     background-color: #F0F0F0;
+    border-radius: 25px;
+    border: 2px solid black;
+    margin-left: 35%;
+    margin-right: 35%;
+    
+
+
+}
+
 #specific{
 
      background-color: #F0F0F0;
@@ -35,4 +47,21 @@ body{
     
 
 
+}
+
+#doctor{
+
+
+    background-color: #F0F0F0;
+    border-radius: 25px;
+    border: 2px solid black;
+    margin-left: 35%;
+    margin-right: 35%;
+
+}
+#doctor, #specific {
+    display: none; /* Nasconde i div all'inizio */
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
 }
