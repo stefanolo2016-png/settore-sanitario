@@ -1,23 +1,124 @@
+<?php
+session_start();
+
+// --- CONFIGURAZIONE E CONNESSIONE ---
+$servername = "localhost";
+$username = "root";
+$password_db = ""; 
+$dbname = "sanitario";
+
+try {
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password_db);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Connessione fallita: " . $e->getMessage());
+}
+
+// --- RECUPERO DATI DALLA SESSIONE ---
+$mio_ce = $_SESSION['ce'] ?? '';
+$ruolo = $_SESSION['character'] ?? 0;
+
+// SISTEMAZIONE NOME: Uniamo le chiavi esistenti 'name' e 'surname'
+$nome = $_SESSION['name'] ?? '';
+$cognome = $_SESSION['surname'] ?? '';
+$mio_nome_completo = trim($nome . " " . $cognome); 
+
+// --- LOGICA DI QUERY SISTEMATA ---
+if ($ruolo == 1) {
+    // Per il dottore cerchiamo usando il nome completo appena creato
+    $stmt = $pdo->prepare("SELECT * FROM reservation WHERE doc_name = ? ORDER BY date ASC, time ASC");
+    $stmt->execute([$mio_nome_completo]);
+} else {
+    // Per il paziente cerchiamo usando il CE
+    $stmt = $pdo->prepare("SELECT * FROM reservation WHERE ce = ? ORDER BY date ASC, time ASC");
+    $stmt->execute([$mio_ce]);
+}
+
+$appuntamenti = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$prossimo = (!empty($appuntamenti)) ? $appuntamenti[0] : null;
+?>
 
 
-<html>
-
+<!DOCTYPE html>
+<html lang="it">
 <head>
-
-    <title>calendar</title>
-
-
-
+    <meta charset="UTF-8">
+    <title>Medical Calendar</title>
+    <link rel="stylesheet" href="calendar.css">
 </head>
-
 <body>
 
     <h1>CALENDAR</h1>
- 
+
+    
 
 
+
+        
+
+    <h2 id="next-title">NEXT APPOINTMENT:</h2>
+<div id="countdown-box">
+    <?php if ($prossimo): ?>
+        <span id="clock" data-next="<?php echo $prossimo['date'] . 'T' . $prossimo['time']; ?>">
+            Caricamento countdown...
+        </span>
+    <?php else: ?>
+        <span id="clock">Nessun appuntamento</span>
+    <?php endif; ?>
+</div>
+
+<a href="index.php">Home</a>
+
+<?php if ($ruolo == 1): ?>
+
+    <hr>
+
+    <div class="event-list">
+        <?php foreach ($appuntamenti as $evento): ?>
+            <div id="event">
+                <p><strong>Descrizione:</strong> <?php echo $evento['description']; ?></p>
+                <p><strong>Data:</strong> <?php echo date("d/m/Y", strtotime($evento['date'])); ?> alle <?php echo $evento['time']; ?></p>
+                
+                <?php if ($ruolo == 1): ?>
+                    <p><strong>Paziente (CE):</strong> <?php echo $evento['ce']; ?></p>
+                <?php else: ?>
+                    <p><strong>Dottore:</strong> <?php echo $evento['doc_name']; ?></p>
+                <?php endif; ?>
+
+                <p><strong>Luogo:</strong> <?php echo $evento['province']; ?></p>
+                <hr>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+
+
+
+
+<?php else: ?>
+    <hr>
+
+    <div class="event-list">
+        <?php foreach ($appuntamenti as $evento): ?>
+            <div id="event">
+                <p><strong>Descrizione:</strong> <?php echo $evento['description']; ?></p>
+                <p><strong>Data:</strong> <?php echo date("d/m/Y", strtotime($evento['date'])); ?> alle <?php echo $evento['time']; ?></p>
+                
+                <?php if ($ruolo == 1): ?>
+                    <p><strong>Paziente (CE):</strong> <?php echo $evento['ce']; ?></p>
+                <?php else: ?>
+                    <p><strong>Dottore:</strong> <?php echo $evento['doc_name']; ?></p>
+                <?php endif; ?>
+
+                <p><strong>Luogo:</strong> <?php echo $evento['province']; ?></p>
+                <hr>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php endif; ?>
+
+    <script src="calendar.js"></script>
 
 </body>
-
-
 </html>
