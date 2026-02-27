@@ -1,59 +1,69 @@
-body{
-
- background-image: url(download\ \(2\).jpg);
-
- background-repeat: no-repeat;
-
- background-attachment: fixed;
-
- background-size: cover;
-
- background-position: center;
-
- text-align: center;
+/* Impostazioni generali della pagina */
+body {
+    background-image: url("download (2).jpg"); /* Assicurati che il nome file sia corretto */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-#upper{
+/* Barra superiore: distribuisce gli elementi ai bordi */
+#upper {
     display: flex;
+    justify-content: space-between; 
     align-items: center;
-    gap: 1100px;
-
-    
-
-}
-#calendar{
-
-    margin-left: 20px;
+    padding: 10px 40px;
 }
 
-#user{
-
-    margin-left:-1100px;
+#upper a {
+    text-decoration: none;
+    color: black;
 }
 
-#center{
-
+/* Titolo centrale */
+#center-title {
     text-align: center;
+    margin-top: 30px;
+    color: #333;
 }
 
-#box {
-    display: flex !important;
-    flex-direction: row !important; /* Forza la riga */
-    flex-wrap: nowrap !important;   /* Impedisce di andare a capo */
-    justify-content: center !important; 
-    align-items: flex-end !important;    /* Li spinge in basso */
-    height: 80vh !important;            /* Crea lo spazio verticale */
-    gap: 30px !important;               /* Spazio tra i due */
-    padding-bottom: 20px;
+/* CONTENITORE BOX: Questo crea lo spazio tra i due div */
+#box-container {
+    display: flex;
+    justify-content: space-between; /* Spinge Payment a sinistra e Prescription a destra */
+    align-items: flex-end;          /* Li posiziona verso il basso */
+    height: 60vh;                   /* Regola l'altezza per posizionarli bene sullo sfondo */
+    padding: 0 80px 60px 80px;      /* Distanza dai bordi (sopra, destra, sotto, sinistra) */
 }
 
-#payment, #prescription {
-    width: 400px !important;  /* Larghezza fissa */
-    height: 300px !important; /* Altezza fissa */
-    background-color: white !important;
-    border: 2px solid black;
-    padding: 15px;
-    box-sizing: border-box; /* Importante per non farli allargare troppo */
+/* Stile comune per i due box (class .card) */
+.card {
+    width: 350px;
+    min-height: 200px;
+    background-color: rgba(255, 255, 255, 0.85); /* Sfondo bianco semi-trasparente */
+    border: 2px solid #000;
+    border-radius: 8px; /* Arrotonda leggermente gli angoli per un look più moderno */
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    text-align: center;
+    transition: transform 0.3s ease; /* Effetto al passaggio del mouse */
+}
+
+/* Effetto quando passi sopra con il mouse */
+.card:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.card-header a {
+    text-decoration: none;
+    color: #d32f2f; /* Un rosso scuro professionale */
+}
+
+.card-content p {
+    color: #444;
+    font-size: 1.1em;
 }
 
