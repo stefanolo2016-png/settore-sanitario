@@ -23,3 +23,39 @@ poi nel index se clicchi l'immagine profilo vedrai i tuoi dati utenti
 
 
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/login.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/login2.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/signIn.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/signInCLient.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/index.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/indexClient.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/payment.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/paymentBox.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/paymentClient.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/paymentClientPay.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/paymentRecord.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/presciptin.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/presciptin2.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/presciptin3.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/presciptin4.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/presciptinClient.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/presciptinClient2.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/presciptinClient.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/reservation.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/reservation2.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/calendarClient.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/user.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/userClient.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/desc.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/edit.png "Logo Title Text 1")
+
+
+
+
+
+
+
+
+
+
+
+
