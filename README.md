@@ -43,7 +43,7 @@ poi nel index se clicchi l'immagine profilo vedrai i tuoi dati utenti
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/reservation.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/reservation2.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/calendarClient.png "Logo Title Text 1")
-![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/user.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/userAdmin.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/userClient.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/desc.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/edit.png "Logo Title Text 1")
