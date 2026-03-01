@@ -25,7 +25,7 @@ poi nel index se clicchi l'immagine profilo vedrai i tuoi dati utenti
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/login.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/login2.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/signIn.png "Logo Title Text 1")
-![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/signInCLient.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/signInClient.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/index.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/indexClient.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/payment.png "Logo Title Text 1")
