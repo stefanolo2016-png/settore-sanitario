@@ -9,7 +9,7 @@
 <body>
 
     <div id="box">
-        <h1 id="accesso">ACCESSO</h1>
+        <h1 id="accesso">SIGN IN</h1>
 
        
 
@@ -18,19 +18,19 @@
             <input type="text" id="ce" name="ce" maxlength="16" required><br>
             <label>password</label><br>
             <input type="password" id="password" name="password" required><br><br>
-            <p>entri come Amministratore (admin)?</p>
+            <p>Access as Administrator (admin)?</p>
             <input type="radio" id="admin_si" name="character" value="1" required>
-            <label for="admin_si">Sì</label>
+            <label for="admin_si">Yes</label>
 
             <input type="radio" id="admin_no" name="character" value="0">
             <label for="admin_no">No</label><br><br>
 
-            <button type="submit">invio</button>
+            <button type="submit">SUBMIT</button>
         </form>
 
      
         <a id="login" href="login.php"><p>login</p></a>
-        <a id="home" href="index.php"><p>home</p></a>
+        
 
     </div>
 
