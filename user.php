@@ -14,6 +14,7 @@ try {
     die("Connessione fallita: " . $e->getMessage());
 }
 
+$ruolo = isset($_SESSION['character']) ? $_SESSION['character'] : 0;
 // 2. Definizione del cognome da cercare
 $ce_ricercato = $_SESSION['ce'];
 $utente = null;
@@ -48,10 +49,12 @@ $indirizzo_completo = "--------------";
 </head>
 <body>
 
+    <?php if ($ruolo == 1): ?>
+
     <div id="box">
         <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="user.png" width="50" height="50" >
-        <button>edit image</button>
+        <img src="doctor.png" width="50" height="50" >
+        
         </div>
         <div id="colonna">
             <div id="nome">
@@ -90,6 +93,56 @@ $indirizzo_completo = "--------------";
         <a href="index.php"><p>Home</p></a>
         <a href="accedi.php">log out</a>
     </div>
+
+    <?php else: ?>
+
+
+        <div id="box">
+        <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="user.png" width="50" height="50" >
+        
+        </div>
+        <div id="colonna">
+            <div id="nome">
+                <p><strong>NAME:</strong></p>
+                <p><?= htmlspecialchars($_SESSION['name'] ?? 'Non trovato') ?></p>
+            </div>
+
+            <div id="telefono">
+                <p><strong>TELEPHONE:</strong></p>
+                <p><?= htmlspecialchars($_SESSION['telephone'] ?? '--------------') ?></p>
+            </div>
+            
+            <div id="registration">
+                <p><strong>REGISTRATION:</strong></p>
+                <p><?= htmlspecialchars($_SESSION['registration'] ?? '----------------') ?></p>
+            </div>
+        </div>
+
+        <div id="colonna">
+            <div id="cognome">
+                <p><strong>SURNAME:</strong></p>
+                <p><?= htmlspecialchars($_SESSION['surname'] ?? '--------------') ?></p>
+            </div>
+
+            <div id="via">
+                <p><strong>ADDRESS:</strong></p>
+                <p><?= htmlspecialchars($_SESSION['place'] ?? '--------------') ?></p>
+            </div>
+        
+            <div id="nascita">
+                <p><strong>YEAR OF BIRTH:</strong></p>
+                <p><?= htmlspecialchars($_SESSION['birth'] ?? '----------------') ?></p>
+            </div>
+        </div>
+
+        <a href="index.php"><p>Home</p></a>
+        <a href="accedi.php">log out</a>
+    </div>
+
+
+
+        <?php endif; ?>
 
 </body>
 </html>

@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div id="box">
-        <h1 id="login">REGISTRAZIONE</h1>
+        <h1 id="login">LOGIN</h1>
         <hr>
         <form action="login.php" method="POST">
             <label>CE:</label><br>
@@ -182,16 +182,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label>Email:</label><br>
             <input type="email" id="email" name="email" required placeholder="esempio@email.it"><br><br>
 
-            <p>L'utente è un Amministratore (admin)?</p>
+            <p>Is the user an Administrator?(admin)?</p>
             <input type="radio" id="admin_si" name="character" value="1" required>
-            <label for="admin_si">Sì</label>
+            <label for="admin_si">Yes</label>
 
             <input type="radio" id="admin_no" name="character" value="0">
             <label for="admin_no">No</label><br><br>
 
-            <button type="submit">Invio</button><br><br>
+            <button type="submit">SUBMIT</button><br><br>
 
-            <a href="accedi.php">Accedi</a><br>
+            <a href="accedi.php">Access</a><br>
             <a href="index.php">Home</a>
         </form>
     </div>

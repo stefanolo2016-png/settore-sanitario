@@ -1,0 +1,59 @@
+WGNMML92S02Z112F
+
+
+                
+		
+		<option value="albania">albanian</option>
+		<option value="australia">australian</option>		
+		<option value="austria">Austrian </option>
+		<option value="bulgaria">bulgaria </option>
+		<option value="canada">canadian</option>	
+		<option value="croazia">croatia</option>
+		<option value="cechia">Cznech </option>
+		<option value="danimarca">danish</option>
+		<option value="estonia">estonia</option>
+		<option value="francia">france</option>	
+		<option value="germania">German </option>
+		<option value="grecia">greece</option>
+		<option value="hungaria">hungary </option>
+		<option value="islanda">iceland</option>
+		<option value="irlanda">irleand</option>
+		<option value="italia">Italy</option>
+		<option value="giappone">Japan</option>
+		<option value="letonia">latvia</option>
+                <option value="lithuania">Lithuania</option>
+		<option value="malta">malta</option>
+		<option value="paesi passi">Netherlands</option>
+		<option value="norvegia">norwegian</option>
+		<option value="portogallo">portugal</option>
+		<option value="romania">romania </option>
+		<option value="slovachia">slovakia </option>
+		<option value="slovenia">slovenian</option>
+		<option value="spagna">spain</option>
+		<option value="svezia">sweden</option>
+		<option value="svizzera">Swisser</option>
+		<option value="turchia">turkye</option>
+		<option value="regno unito">united kingdom</option>
+
+gB8K469/
+
+V1g'BB07
+
+                
+                
+                
+                
+                
+                 <?php if($_accesso == true) 
+            echo <a id="login" href="login.php"><p>login</p></a>;
+            ?>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                

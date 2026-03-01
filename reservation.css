@@ -1,61 +1,67 @@
 body{
-    background-color: #ffffff;
-    height: 100vh;
-    margin: 0; /* Rimuove margini bianchi predefiniti del browser */
-    
-    /* Aggiungi queste: */
-    display: flex;
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center;     /* Centra verticalmente */
-}
 
-#accesso{
+ background-image: url(cuoreDoc.jpg);
 
-    text-align: center;
+ background-repeat: no-repeat;
 
-}
+ background-attachment: fixed;
 
-form{
+ background-size: cover;
 
-    text-align: center;
-}
+ background-position: center;
 
-#login{
-
-    text-align: center;
+ text-align: center;
 
 }
 
-#home{
+#visit{
 
-    text-align: center;
-}
-
-#box{
-
- background-color: #F0F0F0;
+     background-color: #F0F0F0;
     border-radius: 25px;
     border: 2px solid black;
-    display: flex;
-    gap: 20px;
-    height: auto;
-    padding: 20px; /* Aggiunge un po' di respiro interno alla card */
+    margin-left: 35%;
+    margin-right: 35%;
     
-    /* Rimuovi margin-left e margin-right: 35% */
 
 }
 
-#colonna1{
+#specific_title{
 
-  flex: 1; /* Makes both columns equal width */
-  padding: 10px;
+     background-color: #F0F0F0;
+    border-radius: 25px;
+    border: 2px solid black;
+    margin-left: 35%;
+    margin-right: 35%;
+    
 
 
 }
 
-#colonna2{
+#specific{
 
-  flex: 1; /* Makes both columns equal width */
-  padding: 10px;
+     background-color: #F0F0F0;
+    border-radius: 25px;
+    border: 2px solid black;
+    margin-left: 35%;
+    margin-right: 35%;
+    
 
+
+}
+
+#doctor{
+
+
+    background-color: #F0F0F0;
+    border-radius: 25px;
+    border: 2px solid black;
+    margin-left: 35%;
+    margin-right: 35%;
+
+}
+#doctor, #specific {
+    display: none; /* Nasconde i div all'inizio */
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
 }

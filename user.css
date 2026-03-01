@@ -1,7 +1,19 @@
 body{
-
- background-color: #E0E0E0;
-
+    
+    background-image: url("nervi.jpg"); /* Assicurati che il nome file sia corretto */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    
+    
+    /* Aggiungi queste: */
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center;     /* Centra verticalmente */
 }
 
 #accesso{
@@ -28,13 +40,29 @@ form{
 
 #box{
 
-    background-color: #F0F0F0;
+ background-color: #F0F0F0;
     border-radius: 25px;
     border: 2px solid black;
-    margin-left: 35%;
-    margin-right: 35%;
+    display: flex;
+    gap: 20px;
+    height: auto;
+    padding: 20px; /* Aggiunge un po' di respiro interno alla card */
     
+    /* Rimuovi margin-left e margin-right: 35% */
+
+}
+
+#colonna1{
+
+  flex: 1; /* Makes both columns equal width */
+  padding: 10px;
 
 
+}
+
+#colonna2{
+
+  flex: 1; /* Makes both columns equal width */
+  padding: 10px;
 
 }

@@ -1,0 +1,146 @@
+/* 1. IMPORTAZIONE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* 2. STILI GENERALI */
+body {
+    background-image: url("bosco.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    font-family: 'Great Vibes', cursive; /* Font principale della pagina */
+    text-align: center;
+}
+
+/* 3. TITOLO IN ALTO (BANNER SERPENTE) */
+#alto {
+    border-bottom: 3px solid #000;
+    font-size: 85px; 
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
+    
+    background-image: url("sss.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    padding: 70px 20px;
+    margin-bottom: 40px;
+}
+
+/* 4. AREA FORM / PERGAMENA */
+#admin {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#link_pay {
+    background-image: url("tronco.jpg"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%; 
+    background-attachment: scroll;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto 60px auto;
+    
+    border: 1px solid #5d4037;
+    border-radius: 8px;
+    padding: 60px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    
+    width: 850px; 
+    height: auto; /* Altezza automatica per adattarsi al testo corsivo */
+    min-height: 550px;
+}
+
+#link_pay h3 {
+    font-size: 55px;
+    color: #3e2723;
+    margin-top: 0;
+    mix-blend-mode: multiply;
+}
+
+/* 5. STILE DEL FORM (ETICHETTE E INPUT) */
+form {
+    width: 100%;
+}
+
+form label {
+    font-size: 32px; /* Etichette grandi e leggibili */
+    color: #3e2723;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* Tutti i campi di testo in corsivo */
+#ce, #medical, #description, #priority, #cod_prescription, #cod_exception {
+    font-family: 'Great Vibes', cursive;
+    border: none;
+    border-bottom: 2px solid #5d4037;
+    outline: none;
+    background-color: transparent;
+    padding: 10px 0;
+    font-size: 30px; /* Testo grande perché il corsivo è sottile */
+    width: 85%;
+    margin-bottom: 20px;
+    color: #2b1d0e;
+    text-align: center; /* Centra il testo mentre scrivi */
+}
+
+/* Effetto al click sui campi */
+#ce:focus, #medical:focus, #description:focus {
+    border-bottom-color: #d32f2f;
+    transform: scale(1.02);
+}
+
+/* Pulsante di invio coordinato */
+form button {
+    font-family: 'Great Vibes', cursive;
+    font-size: 38px;
+    background-color: #5d4037;
+    color: #f5f5f5;
+    border: none;
+    padding: 5px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #3e2723;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* 6. CRONOLOGIA */
+#cronologia {
+    background-image: url("anatomia.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.75);
+    background-blend-mode: overlay;
+    
+    margin: 40px 20px;
+    padding: 40px;
+    border: 2px solid #333;
+    border-radius: 12px;
+    color: #b71c1c;
+}
+
+#cronologia h4 {
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+#cronologia li {
+    font-size: 26px; /* Lista ricette in corsivo */
+    list-style: none;
+}

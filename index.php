@@ -86,22 +86,20 @@ foreach ($anteprime_presc as $p) {
 
     <?php if ($ruolo == 1): ?>
     <div id="upper">
-        <div id="calendar">
-            <a href="calendar.php"><h2>CALENDAR</h2></a>
+        <div id="calendar" style="background:yellow;">
+            <a href="calendar.php" ><h2>CALENDAR</h2></a>
         </div>
-        <div id="reservation">
-            <a href="reservation.php"><h2>RESERVATION [+]</h2></a>
+        <div id="reservation" style="background:yellow;">
+            <a href="reservation.php" style="background:white;"><h2>RESERVATION [+]</h2></a>
         </div>
         <div id="user-icon">
-            <a href="user.php"><img src="user.png" width="30" alt="User"></a>
+            <a href="user.php"><img src="doctor.png" width="40" alt="User"></a>
         </div>
     </div>
 
     <hr>
     
-    <div id="center-title"> 
-        <h1>TAKE CARE OF YOURSELF</h1>
-    </div>
+    
 
     <div id="box-container">
         
@@ -148,10 +146,10 @@ foreach ($anteprime_presc as $p) {
     <?php else: ?> <!--PROGRAMMA PER IL PAZIENTE-->
 
         <div id="upper">
-        <div id="calendar">
+        <div id="calendar" style="background:yellow">
             <a href="calendar.php"><h2>CALENDAR</h2></a>
         </div>
-        <div id="reservation">
+        <div id="reservation" style="background:yellow">
             <a href="reservation.php"><h2>RESERVATION [+]</h2></a>
         </div>
         <div id="user-icon">
