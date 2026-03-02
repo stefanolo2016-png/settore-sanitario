@@ -48,6 +48,12 @@ poi nel index se clicchi l'immagine profilo vedrai i tuoi dati utenti
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/desc.png "Logo Title Text 1")
 ![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/edit.png "Logo Title Text 1")
 
+NEL DATBASE CON DATI DI ESEMPIO:
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/medical_prescription_db.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/payment_db.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/reservation_db.png "Logo Title Text 1")
+![alt text](https://github.com/stefanolo2016-png/settore-sanitario/blob/main/private_area_db.png "Logo Title Text 1")
+
 
 
 
