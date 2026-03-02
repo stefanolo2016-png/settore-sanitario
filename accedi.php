@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             session_regenerate_id();
             
-            // Salvataggio di TUTTI i dati che ti servono (quelli che avevi prima)
+            // Salvataggio di TUTTI i dati che ti servono
             $_SESSION['ce'] = $user['ce'];
             $_SESSION['name'] = $user['name'];
             $_SESSION['surname'] = $user['surname'];

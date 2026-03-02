@@ -10,19 +10,19 @@ body {
     background-position: center;
     margin: 0;
     
-    /* Applicazione Great Vibes */
+    
     font-family: 'Great Vibes', cursive;
-    font-size: 28px; /* Il corsivo serve più grande per essere letto bene */
+    font-size: 28px; 
     color: rgb(0, 255, 0); 
     text-align: center;
     
-    /* Ombra per migliorare la leggibilità sullo sfondo */
+    
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* 3. SEZIONE EVENTI */
 #event {
-    border: 3px solid yellow; /* Sintassi abbreviata più pulita */
+    border: 3px solid yellow; 
     background-image: url("pyton.jpg"); 
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -33,7 +33,7 @@ body {
     padding: 20px;
     
     color: yellow;
-    /* Eredita il font Great Vibes dal body, ma lo rendiamo più grande */
+  
     font-size: 35px;
 }
 
@@ -43,13 +43,12 @@ h2 {
     align-items: center;
     justify-content: center; 
     padding: 10px 40px;
-    font-size: 50px; /* Titoli ben visibili */
+    font-size: 50px; 
 }
 
 /* 5. OROLOGIO (Stile Digitale vs Calligrafico) */
 #clock {
-    /* Per l'orologio ho mantenuto un font monospazio perché i numeri 
-       del corsivo spesso non si allineano bene per un timer */
+    
     font-family: 'Courier New', Courier, monospace; 
     background: yellow;
     color: red; 

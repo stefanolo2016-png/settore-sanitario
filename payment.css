@@ -117,7 +117,7 @@ button:hover {
     color: white;
 }
 
-/* TASTO DI CONFERMA (SUBMIT / UPDATE) - QUELLO CHE MANCAVA */
+/* TASTO DI CONFERMA (SUBMIT / UPDATE)  */
 button[type="submit"], button[name="update_btn"] {
     background-color: #5d4037;
     color: #f5f5f5;
