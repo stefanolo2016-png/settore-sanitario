@@ -1,6 +1,6 @@
 body{
     
-    background-image: url("nervi.jpg"); /* Assicurati che il nome file sia corretto */
+    background-image: url("nervi.jpg"); 
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
