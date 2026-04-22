@@ -61,7 +61,7 @@ if ($ruolo == 1) {
     // IL PAZIENTE VEDE SOLO LE SUE
     $sql_presc = "SELECT * FROM medical_prescription WHERE ce = ? ORDER BY emission_date DESC";
     $stmt_presc = $pdo->prepare($sql_presc);
-    // QUI C'ERA L'ERRORE: Usiamo $mio_ce definito sopra
+    // Usiamo $mio_ce definito sopra
     $stmt_presc->execute([$mio_ce]); 
 }
 $anteprime_presc = $stmt_presc->fetchAll(PDO::FETCH_ASSOC);
